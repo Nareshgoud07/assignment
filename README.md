@@ -41,3 +41,75 @@ This project is part of the Mobishala hiring assignment. It implements an e-comm
 
 ---
 
+ Test Individual Endpoints
+To test an endpoint manually, follow these steps:
+
+Step 1: Create a New Request
+Open Postman and click + to create a new tab.
+Select the appropriate HTTP method (e.g., GET, POST, PUT, DELETE).
+Step 2: Set the URL
+Use the endpoint URL (e.g., http://localhost:3000/api/add-to-cart).
+Step 3: Add Headers
+If required, add headers such as:
+Content-Type: application/json
+Authorization: Bearer <your_token> (for secured routes).
+Step 4: Add Request Body (if applicable)
+For methods like POST or PUT, go to the Body tab.
+Select raw and choose JSON from the dropdown.
+Enter the JSON payload. For example:
+json
+Copy code
+{
+    "productId": "12345",
+    "quantity": 2
+}
+Step 5: Send the Request
+Click the Send button.
+Postman will display the response, including:
+Status Code (e.g., 200 OK, 400 Bad Request).
+Response Body.
+3. Common Scenarios
+Testing Add to Cart API
+Method: POST
+URL: http://localhost:3000/api/add-to-cart
+Headers:
+Content-Type: application/json
+Authorization: Bearer <your_token> (if authentication is required)
+Body:
+json
+Copy code
+{
+    "productId": "12345",
+    "quantity": 2
+}
+Testing Fetch Cart API
+Method: GET
+URL: http://localhost:3000/api/cart
+Headers:
+Authorization: Bearer <your_token> (if authentication is required)
+Expected Response
+For successful requests, expect responses like:
+
+json
+Copy code
+{
+    "message": "Operation successful",
+    "data": {
+        "cartId": "67890",
+        "items": [
+            {
+                "productId": "12345",
+                "quantity": 2,
+                "price": 500
+            }
+       ],
+        "totalPrice": 1000
+    }
+}
+4. Running Predefined Collections
+If you've imported a Postman Collection:
+
+Go to Collections in the left sidebar.
+Select the collection and click Run.
+Configure variables (if any) and click Run to execute all tests.
+
